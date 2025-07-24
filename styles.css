@@ -9,3 +9,14 @@ h2 {
 h3 {
     font-size: 45px;
 }
+
+.form-styling {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-field-styling {
+    display: flex;
+    flex-direction: row;
+}
