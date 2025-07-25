@@ -27,6 +27,20 @@ h3 {
     font-size: 14px;
 }
 
+table, tr, td{
+    border: solid black 1px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table_headings {
+    font-size: 36px;
+    font-weight: 400;
+}
+
 #addBookButton {
     margin-top: 20px;
     background: green;
