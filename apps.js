@@ -1,3 +1,5 @@
+//https://bookstore-api-six.vercel.app/ 
+
 document.getElementById("bookForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -22,7 +24,7 @@ newRow.innerHTML = `
     <td>${bookPublisher}</td>
     `
 
-//this allows us to add the new row (aka "tr" and the tds) into the existing table
+//this allows us to add the new row (aka "tr" and the tds) into the existing table at the end 
 outputArea.appendChild(newRow)
 
 });
@@ -31,10 +33,5 @@ outputArea.appendChild(newRow)
     AKA we were submitting the form when there was nothing
     AKA the code was running right as the page loads which we do not want
 */
-
-async function getBookData() {
-    const url = ""
-}
-
 
 
