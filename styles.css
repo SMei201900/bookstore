@@ -12,11 +12,37 @@ h3 {
 
 .form-styling {
     margin-top: 20px;
-    display: flex;
-    flex-direction: row;
+}
+
+.form-styling label {
+    font-size: 24px;
+    font-weight: 300;
 }
 
 .input-field-styling {
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: solid #d3d3d3 5px;
+    font-size: 14px;
 }
+
+#addBookButton {
+    margin-top: 20px;
+    background: green;
+    color: white;
+    width: 100%;
+    border-color: transparent;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 25px;
+}
+
+#addBookButton:hover { /*hover over the Button and it darkens a bit*/
+    filter: brightness(0.8);
+}
+
+html {
+  font-family: "Sansation", sans-serif; 
+}
+
