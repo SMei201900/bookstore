@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookstore</title>
+
+    <!--Linked the CSS file -->
     <link rel="stylesheet" href="styles.css" />
 
+    <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <h1>Welcome to the Bookstore</h1>
     <h2>Add a book to the store</h2>
-    <form>
+    <form id="bookForm">
         <div class="form-styling">
             <label for="Book_Title">Book Title</label>
-            <input type="text" placeholder="The Hunger Games" id="Book_Title" class="input-field-styling" name="Book Title">
+            <input type="text" placeholder="The Hunger Games" id="Book_Title" name="Book Title">
         </div>
 
         <div class="form-styling">
             <label for="Book_Author">Book Author</label>
-            <input type="text" placeholder="Suzanne Collins" id="Book_Author" class="input-field-styling" name="Book Author">
+            <input type="text" placeholder="Suzanne Collins" id="Book_Author" name="Book Author">
         </div>
         
         <div class="form-styling">
             <label for="Book_Publisher">Book Publisher</label>
-            <input type="text" placeholder="Scholastic" id="Book_Publisher" class="input-field-styling" name="Book Publisher">
+            <input type="text" placeholder="Scholastic" id="Book_Publisher" name="Book Publisher">
         </div>
 
         <button id="addBookButton">Add book</button>
@@ -35,7 +38,7 @@
 
     <h3>Books in stock</h3>
 
-    <script src="apps.js"></script> 
+    <div id="outputArea">
     <table>
         <tr class="table_headings">
             <td>Title</td>
@@ -52,6 +55,10 @@
             <td>publisher two</td>
         </tr>
     </table>
+    </div>
+
+    <!--Linked the JS file-->
+    <script src="apps.js"></script> 
 
 </body>
 </html>
