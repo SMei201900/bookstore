@@ -17,45 +17,49 @@
 <body>
     <h1>Welcome to the Bookstore</h1>
     <h2>Add a book to the store</h2>
+
     <form id="bookForm">
         <div class="form-styling">
             <label for="Book_Title">Book Title</label>
-            <input type="text" placeholder="The Hunger Games" id="Book_Title" name="Book Title">
+            <input type="text" placeholder="The Hunger Games" id="Book_Title" name="Book Title" required>
         </div>
 
         <div class="form-styling">
             <label for="Book_Author">Book Author</label>
-            <input type="text" placeholder="Suzanne Collins" id="Book_Author" name="Book Author">
+            <input type="text" placeholder="Suzanne Collins" id="Book_Author" name="Book Author" required>
         </div>
         
         <div class="form-styling">
             <label for="Book_Publisher">Book Publisher</label>
-            <input type="text" placeholder="Scholastic" id="Book_Publisher" name="Book Publisher">
+            <input type="text" placeholder="Scholastic" id="Book_Publisher" name="Book Publisher" required>
         </div>
 
-        <button id="addBookButton">Add book</button>
+        <button id="addBookButton" type="submit">Add book</button>
     </form>
 
     <h3>Books in stock</h3>
 
-    <div id="outputArea">
     <table>
-        <tr class="table_headings">
-            <td>Title</td>
-            <td>Author</td>
-            <td>Publisher</td>
-        </tr>
-                <tr>
-            <td>testing one</td>
-            <td>author one </td>
-            <td>publisher one </td>
-        </tr>        <tr>
-            <td>testing two</td>
-            <td>athur two</td>
-            <td>publisher two</td>
-        </tr>
+        <thead class="table_headings">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+        <tbody id="output_Area">
+            <tr>
+                <td>testing one</td>
+                <td>author one </td>
+                <td>publisher one</td>
+            </tr>        
+            <tr>
+                <td>testing two</td>
+                <td>athur two</td>
+                <td>publisher two</td>
+            </tr>
+        </tbody>
     </table>
-    </div>
 
     <!--Linked the JS file-->
     <script src="apps.js"></script> 
