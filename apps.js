@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () {
+document.addEventListener("DOMContentLoaded", () => {
     fetch('https://bookstore-api-six.vercel.app/api/books').then(response => {
         if (!response.ok) {
             throw new Error("Failed to fetch book data");
