@@ -38,9 +38,7 @@ bookForm.addEventListener("submit", function(event) {
     AKA the code was running right as the page loads which we do not want
 */
 
-
-/*testing to see if the branch was created*/
-
+//calling the bookstore api 
 document.addEventListener("DOMContentLoaded", () => {
     fetch('https://bookstore-api-six.vercel.app/api/books').then(response => response.json()).then(data => {
         data.forEach(book => {
@@ -50,3 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error loading books:", error)
     });
 });
+
+/*.title, .author, .publisher is from the API where its written like below 
+[
+  {
+    "id": 1,
+    "title": "adeo victus coniuratio trado vitiosus",
+    "author": "Melinda Dietrich",
+    "isbn": "764bdc47-3037-4583-b7b8-6ef1ab7ee0f6",
+    "publishedDate": "2021-01-07T21:57:20.000Z",
+    "publisher": "Nitzsche Group",
+    "genre": "thema",
+    "description": "Adsuesco odio ubi spargo cenaculum distinctio. Xiphias temporibus audacia cuius articulus adficio benigne subseco aptus ullus. Verecundia virtus creator.",
+    "pageCount": 896,
+    "language": "ja",
+    "createdAt": "2024-08-02T01:19:12.000Z",
+    "updatedAt": "2024-08-02T01:19:12.000Z"
+  }, ---------- ]
+
+*/
