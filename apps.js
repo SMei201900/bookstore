@@ -34,4 +34,5 @@ outputArea.appendChild(newRow)
     AKA the code was running right as the page loads which we do not want
 */
 
+/*testing to see if the branch was created*/
 
