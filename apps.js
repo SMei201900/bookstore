@@ -30,13 +30,14 @@ document.getElementById("bookForm").addEventListener("submit", function(event) {
     const bookTitle = document.getElementById("Book_Title").value; 
     const bookAuthor = document.getElementById("Book_Author").value;
     const bookPublisher = document.getElementById("Book_Publisher").value;
+    const outputArea = document.getElementById("output_Area");
 
     const newRow = document.createElement("tr");
 
     newRow.innerHTML = `
-        <td>${book.title}</td>
-        <td>${book.author}</td>
-        <td>${book.publisher || "NA"}</td>
+        <td>${bookTitle}</td>
+        <td>${bookAuthor}</td>
+        <td>${bookPublisher || "NA"}</td>
         `; 
 
     outputArea.appendChild(newRow); 
