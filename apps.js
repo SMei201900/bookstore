@@ -1,7 +1,6 @@
 const outputArea = document.getElementById("output_Area");
 const bookForm = document.getElementById("bookForm")
 
-//this was created since the api data + the user-typed data BOTH needed to do this 
 function addBookToTable(title, author, publisher, id=null) {
     const newRow = document.createElement("tr");
     
@@ -17,25 +16,22 @@ function addBookToTable(title, author, publisher, id=null) {
     //this allows us to add the new row (aka "tr" and the tds) into the existing table at the end 
     outputArea.appendChild(newRow); 
 
-    //the Delete request aka delete button 
-     const deleteButtonHTML = id
-        ? `<button class="deletebtn" data-id="${id}">Delete</button>`
-        : "";
-
     if (id) {
-        const dltBtn = newRow.querySelector(".deletebtn"); 
-        dltB.addEventListener("click", function() {
+        const dltBtn = newRow.querySelector(".deletebtn");
+        dltBtn.addEventListener("click", function () {
             const bookID = this.dataset.id;
 
             fetch(`https://bookstore-api-six.vercel.app/api/books/${bookID}`, {
-                method: 'DELETE', 
-            }).then(response => response.json())
+                method: 'DELETE',
+            })
+            .then(response => response.json())
             .then(() => {
                 newRow.remove();
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.error("Failed to delete book from list:", error);
             });
-        })
+        });
     }
 
 }
@@ -47,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
         data.forEach(book => {
             console.log(book); 
-            addBookToTable(book.title, book.author, book.publisher)
+            addBookToTable(book.title, book.author, book.publisher, book.id)
         }); 
     }).catch(error => {
         console.error("Error loading books:", error)
@@ -68,8 +64,6 @@ bookForm.addEventListener("submit", function(event) {
 
     const newRow = document.createElement("tr");
 
-    addBookToTable(title, author, publisher)
-
 //the POST request requirement AKA add the user-typed info into the API/SERVER 
     fetch('https://bookstore-api-six.vercel.app/api/books', {
         method: 'POST',
@@ -78,9 +72,13 @@ bookForm.addEventListener("submit", function(event) {
     }).then(response => response.json())
     .then(json => {
         console.log("Book was added to server:", json); 
+
+        addBookToTable(json.title, json.author, json.publisher, json.id);
+
     }).catch(error => {
         console.error("Failed to add book to server:", error)
     });
+
     bookForm.reset();
 }); 
 

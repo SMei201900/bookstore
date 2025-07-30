@@ -57,6 +57,17 @@ table {
     filter: brightness(0.8);
 }
 
+.deletebtn {
+  padding: 5px 10px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 5px;
+}
+
 html {
   font-family: "Sansation", sans-serif; 
   margin-left: 10px;
