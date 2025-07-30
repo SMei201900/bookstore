@@ -30,10 +30,10 @@ function addBookToTable(title, author, publisher, id=null) {
             })
             .catch(error => {
                 console.error("Failed to delete book from list:", error);
+                alert("Oops! Something went wrong while deleting the book. Please try again.")
             });
         });
     }
-
 }
 
 //calling the bookstore api 
@@ -77,10 +77,15 @@ bookForm.addEventListener("submit", function(event) {
 
     }).catch(error => {
         console.error("Failed to add book to server:", error)
+        alert("Oops! Something went wrong while adding the book. Please try again.")
     });
 
     bookForm.reset();
 }); 
+
+
+
+
 
 /*.title, .author, .publisher is from the API where its written like below 
 [
