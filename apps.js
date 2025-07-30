@@ -2,23 +2,51 @@ const outputArea = document.getElementById("output_Area");
 const bookForm = document.getElementById("bookForm")
 
 //this was created since the api data + the user-typed data BOTH needed to do this 
-function addBookToTable(title, author, publisher) {
+function addBookToTable(title, author, publisher, id=null) {
     const newRow = document.createElement("tr");
     
     newRow.innerHTML = `
         <td>${title}</td>
         <td>${author}</td>
         <td>${publisher || "NA"}</td>
+        <td>
+            ${id ? `<button class="deletebtn" data-id="${id}">Delete</button>` : ''}
+        </td>
         `; 
 
     //this allows us to add the new row (aka "tr" and the tds) into the existing table at the end 
     outputArea.appendChild(newRow); 
+
+    //the Delete request aka delete button 
+     const deleteButtonHTML = id
+        ? `<button class="deletebtn" data-id="${id}">Delete</button>`
+        : "";
+
+    if (id) {
+        const dltBtn = newRow.querySelector(".deletebtn"); 
+        dltB.addEventListener("click", function() {
+            const bookID = this.dataset.id;
+
+            fetch(`https://bookstore-api-six.vercel.app/api/books/${bookID}`, {
+                method: 'DELETE', 
+            }).then(response => response.json())
+            .then(() => {
+                newRow.remove();
+            }).catch(error => {
+                console.error("Failed to delete book from list:", error);
+            });
+        })
+    }
+
 }
 
 //calling the bookstore api 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('https://bookstore-api-six.vercel.app/api/books').then(response => response.json()).then(data => {
+    fetch('https://bookstore-api-six.vercel.app/api/books')
+    .then(response => response.json())
+    .then(data => {
         data.forEach(book => {
+            console.log(book); 
             addBookToTable(book.title, book.author, book.publisher)
         }); 
     }).catch(error => {
@@ -55,7 +83,6 @@ bookForm.addEventListener("submit", function(event) {
     });
     bookForm.reset();
 }); 
-
 
 /*.title, .author, .publisher is from the API where its written like below 
 [
