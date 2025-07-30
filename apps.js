@@ -15,6 +15,18 @@ function addBookToTable(title, author, publisher) {
     outputArea.appendChild(newRow); 
 }
 
+//calling the bookstore api 
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('https://bookstore-api-six.vercel.app/api/books').then(response => response.json()).then(data => {
+        data.forEach(book => {
+            addBookToTable(book.title, book.author, book.publisher)
+        }); 
+    }).catch(error => {
+        console.error("Error loading books:", error)
+    });
+});
+
+//addds user-typed info into the table 
 bookForm.addEventListener("submit", function(event) {
     event.preventDefault();
         /*this is the same as writing 
@@ -40,19 +52,9 @@ bookForm.addEventListener("submit", function(event) {
         console.log("Book was added to server:", json); 
     }).catch(error => {
         console.error("Failed to add book to server:", error)
-    })    
-}); 
-
-//calling the bookstore api 
-document.addEventListener("DOMContentLoaded", () => {
-    fetch('https://bookstore-api-six.vercel.app/api/books').then(response => response.json()).then(data => {
-        data.forEach(book => {
-            addBookToTable(book.title, book.author, book.publisher)
-        }); 
-    }).catch(error => {
-        console.error("Error loading books:", error)
     });
-});
+    bookForm.reset();
+}); 
 
 
 /*.title, .author, .publisher is from the API where its written like below 
