@@ -1,6 +1,7 @@
 const outputArea = document.getElementById("output_Area");
 const bookForm = document.getElementById("bookForm")
 
+//this was created since the api data + the user-typed data BOTH needed to do this 
 function addBookToTable(title, author, publisher) {
     const newRow = document.createElement("tr");
     
@@ -29,14 +30,18 @@ bookForm.addEventListener("submit", function(event) {
 
     addBookToTable(title, author, publisher)
 
-    bookForm.reset() //clear the form after submission 
+//the POST request requirement AKA add the user-typed info into the API/SERVER 
+    fetch('https://bookstore-api-six.vercel.app/api/books', {
+        method: 'POST',
+        body: JSON.stringify({title, author, publisher}),
+        headers: {'Content-Type': 'application/json', }
+    }).then(response => response.json())
+    .then(json => {
+        console.log("Book was added to server:", json); 
+    }).catch(error => {
+        console.error("Failed to add book to server:", error)
+    })    
 }); 
-
-/*everything had to be INSIDE the addeventListener 
-    b/c without it, we are appending empty strings
-    AKA we were submitting the form when there was nothing
-    AKA the code was running right as the page loads which we do not want
-*/
 
 //calling the bookstore api 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error loading books:", error)
     });
 });
+
 
 /*.title, .author, .publisher is from the API where its written like below 
 [
