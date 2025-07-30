@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
         data.forEach(book => {
-            console.log(book); 
             addBookToTable(book.title, book.author, book.publisher, book.id)
         }); 
     }).catch(error => {
@@ -71,8 +70,6 @@ bookForm.addEventListener("submit", function(event) {
         headers: {'Content-Type': 'application/json', }
     }).then(response => response.json())
     .then(json => {
-        console.log("Book was added to server:", json); 
-
         addBookToTable(json.title, json.author, json.publisher, json.id);
 
     }).catch(error => {
@@ -85,9 +82,7 @@ bookForm.addEventListener("submit", function(event) {
 
 
 
-
-
-/*.title, .author, .publisher is from the API where its written like below 
+/*.title, .author, .publisher is from the API where its written like such; see below 
 [
   {
     "id": 1,

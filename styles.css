@@ -68,6 +68,10 @@ table {
   margin: 5px;
 }
 
+.deletebtn:hover {
+    filter: brightness(0.9);
+}
+
 html {
   font-family: "Sansation", sans-serif; 
   margin-left: 10px;
