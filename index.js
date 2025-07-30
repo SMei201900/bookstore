@@ -36,7 +36,7 @@ function addBookToTable(title, author, publisher, id=null) {
     }
 }
 
-//calling the bookstore api 
+//calling the bookstore api aka GET request
 document.addEventListener("DOMContentLoaded", () => {
     fetch('https://bookstore-api-six.vercel.app/api/books')
     .then(response => response.json())
