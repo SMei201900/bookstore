@@ -1,5 +1,9 @@
 h1 {
-    font-size: 50px;
+    font-size: 80px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 h2 {
@@ -9,6 +13,7 @@ h2 {
 
 h3 {
     font-size: 45px;
+    margin-bottom: 15px;
 }
 
 .form-styling {
@@ -42,7 +47,7 @@ table {
     font-weight: 400;
 }
 
-#addBookButton {
+#bookadded {
     margin-top: 20px;
     background: green;
     color: white;
@@ -53,13 +58,50 @@ table {
     font-size: 25px;
 }
 
-#addBookButton:hover { /*hover over the Button and it darkens a bit*/
+#bookadded:hover { /*hover over the Button and it darkens a bit*/
     filter: brightness(0.8);
+}
+
+.deletebtn {
+  padding: 5px 10px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.deletebtn:hover {
+    filter: brightness(0.9);
 }
 
 html {
   font-family: "Sansation", sans-serif; 
   margin-left: 10px;
   margin-right: 10px;
+}
+
+/*for phone accessibility*/
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 16px; 
+    }
+
+    h1 {
+        display: block;
+        height: 50%;
+        font-size: 50px;
+    }
+
+    h3 { 
+        font-size: 38px;
+    }
+
+    .table_headings {
+        font-size: 28px;
+    }
+
 }
 

@@ -6,7 +6,7 @@
     <title>Bookstore</title>
 
     <!--Linked the CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,10 +31,10 @@
         
         <div class="form-styling">
             <label for="Book_Publisher">Book Publisher</label>
-            <input type="text" placeholder="Scholastic" id="Book_Publisher" name="Book Publisher" required>
+            <input type="text" placeholder="Scholastic" id="Book_Publisher" name="Book Publisher">
         </div>
 
-        <button id="addBookButton" type="submit">Add book</button>
+        <button id="bookadded" type="submit">Add book</button>
     </form>
 
     <h3>Books in stock</h3>
@@ -45,24 +45,15 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Publisher</th>
+                <th></th> <!--this is where the delete button will go-->
             </tr>
         </thead>
         <tbody id="output_Area">
-            <tr>
-                <td>testing one</td>
-                <td>author one </td>
-                <td>publisher one</td>
-            </tr>        
-            <tr>
-                <td>testing two</td>
-                <td>athur two</td>
-                <td>publisher two</td>
-            </tr>
         </tbody>
     </table>
 
     <!--Linked the JS file-->
-    <script src="apps.js"></script> 
+    <script src="index.js"></script> 
 
 </body>
 </html>
